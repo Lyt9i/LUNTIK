@@ -1,0 +1,25 @@
+import codecs
+import time
+import random
+
+def main():
+    with codecs.open("balloffate.txt", "r", "utf-8") as a:
+        b = a.read().splitlines()  
+    name = input("Как тебя зовут? ")
+    flag = True
+    while flag:
+        print(f"Задавай вопрос, {name}")
+        input()
+        to_wait()
+        print(b[random.randint(0, len(b) - 1)])  
+        otvet = input("Хочешь задать ещё вопрос? (Да/Нет): ")
+        if otvet.lower() == "нет": 
+            flag = False
+
+def to_wait():
+    for i in range(3, 0, -1):
+        print(i)  
+        time.sleep(1)
+
+if __name__ == "__main__": 
+    main()
